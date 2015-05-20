@@ -9,15 +9,18 @@
     <link rel="icon" href="../../favicon.ico">
 
     <title>Practica final DAT</title>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
     <link href="bootstrap.min.css" rel="stylesheet">
     <link href="justified.css" rel="stylesheet">
-    <script type="text/javascript" src="jquery.js"></script>
     <link rel="stylesheet" type="text/css" href="css.css">
+
+    <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="adivina.js"></script>
 
 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
   </head>
@@ -28,7 +31,7 @@
       <div class="masthead">
         <h3 class="text-muted"> ¡¡Adivina dónde está!! Práctica final DAT Alejandro Lorenzo Caro</h3>
         <nav>
-          <ul class="nav nav-justified">
+          <ul id ='panel' class="nav nav-justified">
             <li class="active"><a href="/">Iniciar juego</a></li>            
             <li><a href="#">Abortar juego</a></li>
             <li><a href="#">Downloads</a></li>
@@ -37,58 +40,48 @@
           </ul>
         </nav>
       </div>
-      <div id="dificultad" class = "col-xs-12 col-md-3">
+      <div id="dificultad" class = "col-md-6">
                   <h5>Dificultad</h5>
-                  <select id="gameDifficulty" class="form-control">
-                    <option value="7000">Facil</option>
-                    <option value="5000">Medio</option>
-                    <option value="2000">Dificil</option>
+                  <select id="dificultad" class="form-control">
+                    <option value="">Facil</option>
+                    <option value="">Medio</option>
+                    <option value="">Dificil</option>
                   </select>            
      </div> 
-    <div id="juegos" class = "col-xs-12 col-md-3">
+    <div id="juegos" class = "col-md-6">
                   <h5>Juegos</h5>
-                  <select id="gameDifficulty" class="form-control">
+                  <select id="tipojuego" class="form-control">
                     <option value="7000">Facil</option>
                     <option value="5000">Medio</option>
                     <option value="2000">Dificil</option>
                   </select>            
      </div> 
 
-      <!-- Jumbotron -->
       <div class="jumbotron">
         <h1>¡¡Adivina dónde está!!</h1>
-        <p class="lead">Adivina dónde está es un divertido juego que consiste en localizar en un mapa el lugar del que están saliendo fotografías</p>
+        <p class="lead">Adivina dónde está es un divertido juego que consiste en localizar en el mapa el lugar del que están saliendo fotografías</p>
         <p><button class="btn btn-lg btn-success"  id='empieza'>¡Juega!</button></p>
       </div>
 
-      <!-- Example row of columns -->
       <div class="row">
-        <div class="col-lg-4">
-          <h2>Safari bug warning!</h2>
-          <p class="text-danger">As of v8.0, Safari exhibits a bug in which resizing your browser horizontally causes rendering errors in the justified nav that are cleared upon refreshing.</p>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+        <div id='fotos' class="col-lg-6">
+          <h2>Foto</h2>
+          
         </div>
-        <div class="col-lg-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
-       </div>
-        <div class="col-lg-4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
-          <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+        <div class="col-lg-6">
+            <h2>Mapa</h2>
         </div>
-      </div>
-        <button id= 'em'>2</button>
         
+      </div>
+        <container>
+         <div id='map' ></div>
+        <div id = 'fot'><img  class="col-lg-6" src='foto1.jpg' >
+        </div>
+        </container>
 
+     
+    </div>
 
-      <footer class="footer">
-        <p>&copy; Alejandro Lorenzo Caro. Todos los derechos reservados</p>
-      </footer>
-
-    </div> <!-- /container -->
   </body>
 </html>
 
