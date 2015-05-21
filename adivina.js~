@@ -1,7 +1,14 @@
 i=0
-jQuery(document).ready(function(){
-    
+var nombres = []
+var coordenadas = []
+var auxdata;
+var aleatorio;
 
+jQuery(document).ready(function(){
+    var todo = {
+            nombres : [],
+            coordenadas : []
+    }
         $('#dificultad,#juegos,#panel,.row').hide()
 
     $('#empieza').click(function(){
@@ -9,10 +16,6 @@ jQuery(document).ready(function(){
         $('#panel,.row,#map,#fot').show()
     })
     
-    $('#em').click(function(){
-        console.log($("#gameDifficulty option:selected").val())
-        
-    })
 
     $('#iniciar').click(function(){
         map.on('click', function(e) {
@@ -21,16 +24,17 @@ jQuery(document).ready(function(){
             //.setContent('<p>'+e.latlng+ '</p>')
             .setContent('<p>Mi solución</p>')
             .openOn(map);
+            comprobar(e.latlng)
         });
         dificultad = $("#dificultad option:selected").val()
+        tipo = $("#juegos option:selected").val()
+        todo = cogerJson(tipo)
         $('#abortar').show()
         $('#nuevo,#iniciar,#dificultad,#juegos').hide()
-        fotos('oporto')
-        timer = setInterval(function () {fotos('oporto')}, dificultad);     
+            
     })
 
     $('#abortar').click(function(){
-        map.on('click', function(e) {console.log('')});
         clearInterval(timer)
         $('#nuevo').show()
         $('#abortar,#iniciar,#dificultad,#juegos').hide()
@@ -55,42 +59,53 @@ jQuery(document).ready(function(){
         .bindPopup('Localizacion exacta')
         .openPopup();*/
 
+    function comprobar(usuario){
+        L.marker([coordenadas[aleatorio][0],coordenadas[aleatorio][1]]).addTo(map)
+        .bindPopup('Localizacion exacta')
+        .openPopup();
+        L.marker([usuario.lat,usuario.lng]).addTo(map)
+        .bindPopup('Localizacion exacta')
+        .openPopup();
+        console.log('usuario ' + usuario.lat + usuario.lng)
+        console.log('verdad ' + coordenadas[aleatorio] )
+    }
 
+    function cogerJson(nombre){
+        
+        $.getJSON('juegos/' + nombre ,function(data){
+            data.features.forEach(function(sitio){                
+                nombres.push(sitio.properties.name);
+                coordenadas.push(sitio.geometry.coordinates);
+            });
+            aux()
+        }) 
+        
+    }
+
+    function aux(){
+        aleatorio = Math.round(Math.random()*6);
+        i=0;
+        fotos(nombres[aleatorio])
+        console.log('juego: ' + nombres[aleatorio])
+        timer = setInterval(function () {fotos(nombres[aleatorio])}, dificultad);        
+    }
     
 
 
     function fotos(tag){
-        i++
-        $.getJSON("https://api.flickr.com/services/feeds/photos_public.gne?&tags="+tag+"&tagmode=any&format=json&jsoncallback=?",
-            function(data){
-                html = "<img src="+data.items[i].media.m+" class='col-lg-6'>";           
-                html += "</div>";     
-                $("#fot").html(html)
-            }  
-        )
+        if(i<10){
+            i++
+            $.getJSON("https://api.flickr.com/services/feeds/photos_public.gne?&tags=" + tag + "&tagmode=any&format=json&jsoncallback=?",
+                function(data){
+                    html = "<img src=" + data.items[i].media.m + " class='col-lg-6'></div>";           
+                    $("#fot").html(html)
+                }  
+            )
+        }else{
+            html = "<img src='fin.jpg' class='col-lg-6'></div>";           
+            $("#fot").html(html)
+        }
     }
-/*
-console.log(tag);
-	$.getJSON("https://api.flickr.com/services/feeds/photos_public.gne?tags="
-		+tag+"&tagmode=any&format=json&jsoncallback=?",function(data){
-
-		resetCarousel();
-
-		for(i in data.items){
-			
-			html = "<div class='item'>";
-            html += "<img src="+data.items[i].media.m+" >";
-            html += "<div class='container'>";
-            html += "<div class='carousel-caption'>";
-            html += "</div></div></div></div>";     
-            $('.carousel-inner').append(html);
-            if(i == 10){
-            	break;
-            }
-		}
-	});
-
-    */
     
 });
 
