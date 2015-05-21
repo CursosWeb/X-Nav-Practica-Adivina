@@ -32,28 +32,25 @@
         <h3 class="text-muted"> ¡¡Adivina dónde está!! Práctica final DAT Alejandro Lorenzo Caro</h3>
         <nav>
           <ul id ='panel' class="nav nav-justified">
-            <li class="active"><a href="/">Iniciar juego</a></li>            
-            <li><a href="#">Abortar juego</a></li>
-            <li><a href="#">Downloads</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a id='nuevo' href='#'>Nuevo juego</a></li>
+            <li ><a id='iniciar' href='#'>Empezar juego</a></li>            
+            <li><a id='abortar' href='#'>Abortar juego</a></li>           
           </ul>
         </nav>
       </div>
       <div id="dificultad" class = "col-md-6">
                   <h5>Dificultad</h5>
                   <select id="dificultad" class="form-control">
-                    <option value="">Facil</option>
-                    <option value="">Medio</option>
-                    <option value="">Dificil</option>
+                    <option value="10000">Baja</option>
+                    <option value="5000">Media</option>
+                    <option value="2000">Alta</option>
                   </select>            
      </div> 
     <div id="juegos" class = "col-md-6">
                   <h5>Juegos</h5>
                   <select id="tipojuego" class="form-control">
-                    <option value="7000">Facil</option>
-                    <option value="5000">Medio</option>
-                    <option value="2000">Dificil</option>
+                    <option value="">Capitales</option>
+                    <option value="">Equipos</option>
                   </select>            
      </div> 
 

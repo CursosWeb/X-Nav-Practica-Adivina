@@ -1,0 +1,86 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+         {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -3.7037901999999576,
+                    40.4167754
+                ]
+            },
+            "properties": {
+                "name": "Madrid"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.9,
+                    12.5
+                ]
+            },
+            "properties": {
+                "name": "Roma"
+
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    2.3522219000000177,
+                    48.856614
+                ]
+            },
+            "properties": {
+                "name": "Paris"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    34.608333,
+                    58.371944
+                ]
+            },
+            "properties": {
+                "name": "Buenos aires"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    35.700556,
+                    139.715
+                ]
+            },
+            "properties": {
+                "name": "Tokio"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.420833,
+                    75.69
+                ]
+            },
+            "properties": {
+                "name": "Ottawa"
+            }
+        }
+       
+    ]
+        
+}
