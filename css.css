@@ -12,4 +12,15 @@
     width: 1000px;
 }
 
-
+p.result{
+    background: #6495ED;
+  position:relative;
+  margin-left:40px ;
+  width: 380px;
+  height: 150px;
+  border-radius: 15px; 
+   color:white;
+    font-size:22px;
+    font-family: "georgia";
+    padding: 16px;
+}

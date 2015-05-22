@@ -34,8 +34,9 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    2.3522219000000177,
-                    48.856614
+                    48.856614,
+                    2.3522219000000177
+                    
                     
                     
                 ]
@@ -75,12 +76,13 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    45.420833,
-                    75.69
+                    ﻿38.89500, 
+                    -77.03639
+                    
                 ]
             },
             "properties": {
-                "name": "Ottawa"
+                "name": "Washington"
             }
         }
        

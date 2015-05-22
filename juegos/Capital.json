@@ -34,8 +34,9 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    2.3522219000000177,
-                    48.856614
+                    48.856614,
+                    2.3522219000000177
+                    
                     
                     
                 ]
@@ -68,19 +69,6 @@
             },
             "properties": {
                 "name": "Tokio"
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    45.420833,
-                    75.69
-                ]
-            },
-            "properties": {
-                "name": "Ottawa"
             }
         }
        
