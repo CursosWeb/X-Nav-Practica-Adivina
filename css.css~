@@ -1,18 +1,11 @@
 #map
 {
-    height: 350px;
-    width: 350px;
-    width:40%;
+    height: 250px;
     float:right
 }
 
-#fot
-{
-    height: 1000px;
-    width: 1000px;
-}
 
-p.result{
+p#result{
     background: #6495ED;
   position:relative;
   margin-left:40px ;
@@ -27,7 +20,8 @@ p.result{
 
 #final{
     color:#1E90FF;
-    font-size:22px;
+    font-size:40px;
     font-family: "georgia";
+    float: right;
 
 }

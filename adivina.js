@@ -45,7 +45,7 @@ jQuery(document).ready(function(){
         $('#nuevo').show()
         $('#abortar,#iniciar,#dificultad,#juegos,#historial,#historial1').hide()
 
-        html = "<img src='foto1.jpg' class='col-lg-6'></div>"; 
+        html = "<img src='foto1.jpg' class='col-lg-6 col-xs-6'></div>"; 
         $("#fot").html(html)
     })
     
@@ -59,7 +59,7 @@ jQuery(document).ready(function(){
     $('#nuevo').click(function(){
         $('#abortar,#iniciar,#dificultad,#juegos,#historial,#solu2').show()
         $('#nuevo').hide()
-        html = "<img src='foto1.jpg' class='col-lg-6'></div>"; 
+        html = "<img src='foto1.jpg' class='col-lg-6 col-xs-6'></div>"; 
         $("#fot").html(html)
         $("#solu").html('Foto')
         $("#solu2").html('Mapa')  
@@ -109,9 +109,19 @@ jQuery(document).ready(function(){
         
         $('#nuevo').show()
         $('#abortar,#iniciar,#dificultad,#juegos,#historial').hide()
-        html = "<p class = 'result'>La distancia entre los dos puntos es de: <br>" + distancia + " metros</p><p class = 'result'>Tu puntuación es de: <br><br>" + distancia*i + " puntos</p>";           
+        html = "<p col-lg-6 col-xs-6 id = 'result'>La distancia entre los dos puntos es de: <br>" + distancia + " metros</p><p id = 'result'>Tu puntuación es de: <br><br>" + distancia*i + " puntos</p>";           
         $("#fot").html(html) 
-        $("#solu").html("El lugar exacto de las fotografías es: <p id = 'final'>" +  nombres[aleatorio] + '</p>')
+
+        if(tipo== 'Capital.json'){
+            juegoVal = 'Capitales'
+            $("#solu").html("La capital de las fotografías era: <p id = 'final'>" +  nombres[aleatorio] + '</p>')
+        }else if(tipo== 'Equipos.json'){
+            juegoVal = 'Equipos'
+            $("#solu").html("El equipo de las fotografías era: <p id = 'final'>" +  nombres[aleatorio] + '</p>')
+        }else if(tipo== 'Lugares.json'){
+            juegoVal = 'Lugares'
+            $("#solu").html("El lugar exacto de las fotografías era: <p id = 'final'>" +  nombres[aleatorio] + '</p>')
+        } 
         $("#solu2").hide()
         fecha = new Date()
         fecha = fecha.toString(fecha)
@@ -123,13 +133,7 @@ jQuery(document).ready(function(){
                 fecha: fecha
         }
          
-        if(tipo== 'Capital.json'){
-            juegoVal = 'Capitales'
-        }else if(tipo== 'Equipos.json'){
-            juegoVal = 'Equipos'
-        }else if(tipo== 'Lugares.json'){
-            juegoVal = 'Lugares'
-        }    
+           
 
         estado++         
 
@@ -180,12 +184,12 @@ jQuery(document).ready(function(){
             i++
             $.getJSON("https://api.flickr.com/services/feeds/photos_public.gne?&tags=" + tag + "&tagmode=any&format=json&jsoncallback=?",
                 function(data){
-                    html = "<img src=" + data.items[i].media.m + " class='col-lg-6'>";           
+                    html = "<img src=" + data.items[i].media.m + " class='col-lg-6 col-xs-6'>";           
                     $("#fot").html(html)
                 }  
             )
         }else{
-            html = "<img src='fin.jpg' class='col-lg-6'>";           
+            html = "<img src='fin.jpg' class='col-lg-6 col-xs-12'>";           
             $("#fot").html(html)
         }
     }

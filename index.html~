@@ -68,22 +68,21 @@
         <p><button class="btn btn-lg btn-success"  id='empieza'>¡Juega!</button></p>
       </div>
 
-      <div class="row">
-        <div id='fotos' class="col-lg-6">
+      <div class="row ">
+        <div id='fotos' class = "col-lg-6 hidden-xs" >
           <h2 id = 'solu' >Foto</h2>
           
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 hidden-xs">
             <h2 id = 'solu2'>Mapa</h2>
         </div>
     
         
       </div>
-        <container>
-         <div id='map' ></div>
-        <div id = 'fot' class="col-lg-6"><img  class="col-lg-6" src='foto1.jpg' >
-        </div>
-        </container>
+
+         <div id='map' class="col-lg-6 col-xs-6"></div>
+        <div id = 'fot' ><img  class="col-lg-6 col-xs-6" src='foto1.jpg' ></div>
+
 
      
     </div>
