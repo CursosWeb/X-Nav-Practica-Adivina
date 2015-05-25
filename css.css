@@ -24,3 +24,11 @@ p.result{
     font-family: "georgia";
     padding: 16px;
 }
+
+#final{
+    color:#1E90FF;
+    font-size:40px;
+    font-family: "georgia";
+    float: right;
+
+}

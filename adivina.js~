@@ -1,4 +1,4 @@
-//url en navegador, bootstrap, css solucion
+//bootstrap,  hacer geojson
 i=0
 var nombres = []
 var coordenadas = []
@@ -31,6 +31,7 @@ jQuery(document).ready(function(){
         });
         dificultad = $("#dificultad option:selected").val()
         tipo = $("#juegos option:selected").val()
+        console.log('juego; ' + tipo)
         cogerJson(tipo)
         $('#abortar').show()
         $('#nuevo,#iniciar,#dificultad,#juegos,#historial,#historial1').hide()
@@ -56,7 +57,7 @@ jQuery(document).ready(function(){
     
 
     $('#nuevo').click(function(){
-        $('#abortar,#iniciar,#dificultad,#juegos,#historial').show()
+        $('#abortar,#iniciar,#dificultad,#juegos,#historial,#solu2').show()
         $('#nuevo').hide()
         html = "<img src='foto1.jpg' class='col-lg-6'></div>"; 
         $("#fot").html(html)
@@ -67,14 +68,11 @@ jQuery(document).ready(function(){
         L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
-        //window.history.go(-1)
+
         
     })
 
     window.addEventListener('popstate', function(event) {
-            //llama a funcion con event.state
-
-       // console.log(event.state.fecha)
         console.log('location ' + location.toString().split('?')[1])
         map.on('click', function(e) {
             var popup = L.popup()
@@ -113,22 +111,25 @@ jQuery(document).ready(function(){
         $('#abortar,#iniciar,#dificultad,#juegos,#historial').hide()
         html = "<p class = 'result'>La distancia entre los dos puntos es de: <br>" + distancia + " metros</p><p class = 'result'>Tu puntuación es de: <br><br>" + distancia*i + " puntos</p>";           
         $("#fot").html(html) 
-        $("#solu").html('El lugar exacto de las fotos era: ' )
-        $("#solu2").html(nombres[aleatorio]) 
-
+        $("#solu").html("El lugar exacto de las fotografías es: <p id = 'final'>" +  nombres[aleatorio] + '</p>')
+        $("#solu2").hide()
         fecha = new Date()
         fecha = fecha.toString(fecha)
         fecha= fecha.split(' ')[2] + ' ' + fecha.split(' ')[1] + ' ' + fecha.split(' ')[3] 
 
         objeto={puntuacion:distancia*i,
-              juego: tipo,
+                juego: tipo,
                 dificultad:$("#dificultad option:selected").val(),
                 fecha: fecha
         }
          
         if(tipo== 'Capital.json'){
             juegoVal = 'Capitales'
-        }  
+        }else if(tipo== 'Equipos.json'){
+            juegoVal = 'Equipos'
+        }else if(tipo== 'Lugares.json'){
+            juegoVal = 'Lugares'
+        }    
 
         estado++         
 
@@ -154,6 +155,8 @@ jQuery(document).ready(function(){
     function cogerJson(nombre){
         console.log(nombre)
         $.getJSON('juegos/' + nombre ,function(data){
+            nombres = []
+            coordenadas = []
             data.features.forEach(function(sitio){                
                 nombres.push(sitio.properties.name);
                 coordenadas.push(sitio.geometry.coordinates);

@@ -48,14 +48,15 @@
                     <option value="2000">Alta</option>
                   </select>            
      </div> 
-    <div id="juegos" class = "col-md-3">
+    <div id="juegos" class = "col-md-4">
                   <h5>Juegos</h5>
                   <select id="juegos" class="form-control">
                     <option value="Capital.json">Capitales</option>
                     <option value="Equipos.json">Equipos</option>
+                    <option value="Lugares.json">Lugares</option>
                   </select>            
      </div> 
-    <div id="historial1" class = "col-md-6">
+    <div id="historial1" class = "col-md-5">
     <h5>Historial</h5>
                              
      </div> 
@@ -80,7 +81,7 @@
       </div>
         <container>
          <div id='map' ></div>
-        <div id = 'fot'><img  class="col-lg-6" src='foto1.jpg' >
+        <div id = 'fot' class="col-lg-6"><img  class="col-lg-6" src='foto1.jpg' >
         </div>
         </container>
 
